@@ -38,8 +38,8 @@ jobs:
         run: npm run test --watch=false --code-coverage  # Disable test watch, include code coverage
 
       - name: Upload coverage reports (optional)
-        uses: actions/upload-artifact@v2  # Upload code coverage reports
+        uses: actions/upload-artifact@v2
         with:
           name: coverage
           path: coverage/*  # Upload coverage files directory
-          if: ${{ success() }}  # Upload only on successful builds
+          if: steps.test.outputs == 0  # Check for successful test exit code
