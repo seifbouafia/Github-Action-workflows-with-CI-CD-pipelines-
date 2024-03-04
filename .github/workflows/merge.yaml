@@ -36,6 +36,6 @@ jobs:
         working-directory: test-workflows
 
       - name: Testing
-        run: npm run test --watch=false --code-coverage --headless  # Disable test watch, include code coverage
+        run: npm run test --watch=false --code-coverage --browsers=ChromeHeadless
         working-directory: test-workflows
 
