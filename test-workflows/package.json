@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "lint": "eslint src",
+    "lint": "ng lint",
     "test": "ng test",
     "serve:ssr:test-workflows": "node dist/test-workflows/server/server.mjs"
   },
