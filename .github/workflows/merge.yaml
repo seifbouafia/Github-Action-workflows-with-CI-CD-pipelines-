@@ -1,47 +1,34 @@
-name: Code junction build
+name: Angular CI
+
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main
+    paths:
+      - test-workflows/**
 jobs:
-  ubuntu-build:
-
+  build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+    defaults:
+      run:
+        working-directory: test-workflows
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build
-      - run: npm test
-        env:
-          CI: true
-  windows-build:
+          node-version: "18.x"
 
-    runs-on: windows-latest
+      - name: Install dependencies
+        run: npm install
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+      - name: Linting
+        run: npm run lint
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build
-      - run: npm test
-        env:
-          CI: true
+      - name: testing
+        run: npm run test
+
