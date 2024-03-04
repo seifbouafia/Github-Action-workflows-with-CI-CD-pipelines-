@@ -35,8 +35,9 @@ jobs:
         run: npm run lint
         working-directory: test-workflows
 
-      - uses: GabrielBB/xvfb-action@master
       - name: Testing
-        run: npm run test --watch=false --code-coverage
-        working-directory: test-workflows
+        uses: GabrielBB/xvfb-action@master
+        with:
+          run: npm run test --watch=false --code-coverage
+          working-directory: test-workflows
 
