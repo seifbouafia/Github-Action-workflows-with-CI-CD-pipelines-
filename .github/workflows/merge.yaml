@@ -5,8 +5,12 @@ on:
       - main
 
 jobs:
-  ci:
+  merge:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: test-workflows
 
     strategy:
       matrix:
