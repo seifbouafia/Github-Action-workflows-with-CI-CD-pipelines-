@@ -8,6 +8,11 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: cron-example
+
     strategy:
       matrix:
         node-version: [16.x, 18.x]  # Test with multiple Node.js versions
