@@ -33,13 +33,9 @@ jobs:
 
       - name: Linting
         run: npm run lint
+        working-directory: test-workflows
 
       - name: Testing
         run: npm run test --watch=false --code-coverage  # Disable test watch, include code coverage
+        working-directory: test-workflows
 
-      - name: Upload coverage reports (optional)
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: coverage/*  # Upload coverage files directory
-          if: steps.test.outputs == 0  # Check for successful test exit code
