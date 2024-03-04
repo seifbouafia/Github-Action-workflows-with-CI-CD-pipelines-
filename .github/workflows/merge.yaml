@@ -29,6 +29,6 @@ jobs:
       - name: Linting
         run: npm run lint
 
-      - name: Run tests
-        run: npm run test -- --headless --no-sandbox
+      - name: testing
+        run: npm run test
 
