@@ -2,33 +2,44 @@ name: Angular CI
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - test-workflows/**
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    branches: [ main ]
+  pull_request:
 
-    defaults:
-      run:
-        working-directory: test-workflows
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]  # Test with multiple Node.js versions
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --prefer-ci  # Install for CI environment
+
+      - name: Cache npm dependencies (optional)
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}  # Unique cache key
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: Linting
         run: npm run lint
 
-      - name: testing
-        run: npm run test
+      - name: Testing
+        run: npm run test --watch=false --code-coverage  # Disable test watch, include code coverage
 
+      - name: Upload coverage reports (optional)
+        uses: actions/upload-artifact@v2  # Upload code coverage reports
+        with:
+          name: coverage
+          path: coverage/*  # Upload coverage files directory
+          if: ${{ success() }}  # Upload only on successful builds
