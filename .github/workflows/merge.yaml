@@ -3,7 +3,6 @@ name: Angular CI
 on:
   push:
     branches: [ main ]
-  pull_request:
 
 jobs:
   lint-and-test:
@@ -22,6 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install --prefer-ci  # Install for CI environment
+        working-directory: test-workflows
 
       - name: Cache npm dependencies (optional)
         uses: actions/cache@v2
