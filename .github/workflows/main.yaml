@@ -17,10 +17,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: test-workflows
 
       - run: npm run build
-        working-directory: test-workflows
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
