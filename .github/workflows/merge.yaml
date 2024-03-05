@@ -38,7 +38,7 @@ jobs:
       - name: Testing
         uses: GabrielBB/xvfb-action@master
         with:
-          run: npm run test --watch=false --code-coverage
+          run: npm run test --watch=false --browsers=Chrome --code-coverage
           working-directory: test-workflows
 
 
