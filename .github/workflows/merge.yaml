@@ -2,7 +2,8 @@ name: Angular CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - '*'
 
 jobs:
   lint-and-test:
