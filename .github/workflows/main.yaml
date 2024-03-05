@@ -28,4 +28,4 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: 1//03GlgnmwZc-Z_CgYIARAAGAMSNwF-L9Ir4uZSdRKMyD51gKNs-WHUrxpnfGfnvbkXR4yuMOaUiTKNibJK6-UYAZlkRRidZQHLjvo
-          PROJECT_ID: "aibs-bi-testing"
+          PROJECT_ID: "chrome-extension-21f92"
