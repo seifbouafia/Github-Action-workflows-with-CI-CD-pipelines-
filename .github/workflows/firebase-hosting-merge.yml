@@ -14,9 +14,9 @@ jobs:
       - run: npm install && npm run build
         working-directory: test-workflows
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        working-directory: test-workflows
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHROME_EXTENSION_21F92 }}'
           channelId: live
           projectId: chrome-extension-21f92
-          entryPoint: ./test-workflows
