@@ -1,0 +1,25 @@
+[debug] [2024-03-05T13:32:03.962Z] ----------------------------------------------------------------------
+[debug] [2024-03-05T13:32:03.965Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\SBS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-03-05T13:32:03.965Z] CLI Version:   12.9.1
+[debug] [2024-03-05T13:32:03.966Z] Platform:      win32
+[debug] [2024-03-05T13:32:03.966Z] Node Version:  v18.18.2
+[debug] [2024-03-05T13:32:03.967Z] Time:          Tue Mar 05 2024 14:32:03 GMT+0100 (heure normale d’Afrique de l’Ouest)
+[debug] [2024-03-05T13:32:03.967Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-05T13:32:04.041Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-05T13:32:04.041Z] > authorizing via signed-in user (seifbouafia340@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\SBS\Desktop\github-actions-test\test\test-workflows
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
