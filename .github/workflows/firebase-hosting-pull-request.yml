@@ -19,4 +19,3 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHROME_EXTENSION_21F92 }}'
           projectId: chrome-extension-21f92
-          entryPoint: ./test-workflows
