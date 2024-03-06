@@ -19,4 +19,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHROME_EXTENSION_21F92 }}'
           channelId: live
           projectId: chrome-extension-21f92
-          entryPoint: C:\Users\SBS\Desktop\github-actions-test\test\test-workflows\firebase.json
+          entryPoint: ./test-workflows
