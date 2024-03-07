@@ -22,7 +22,8 @@ jobs:
       - name: Increase version (replace 'patch' with 'minor' or 'major' if needed)
         run: npm version patch
       - name: Create Git tag (optional, adjust message as desired)
-        run: git tag v$(npm --parse package.json version) -m "Release v$(npm --parse package.json version)"
+        run: git tag -m "Release v$(npm --parse package.json version)" v$(npm --parse package.json version)
+
 
   build_and_deploy:
     runs-on: ubuntu-latest
