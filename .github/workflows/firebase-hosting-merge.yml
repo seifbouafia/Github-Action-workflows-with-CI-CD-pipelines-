@@ -21,8 +21,9 @@ jobs:
         run: npm install
       - name: Increase version (replace 'patch' with 'minor' or 'major' if needed)
         run: npm version patch
-      - name: Create Git tag (optional, adjust message as desired)
-        run: git tag -m "Release v$(npm --parse package.json version)" v$(npm --parse package.json version)
+      - name: Create Git tag (optional)
+        run: |  # Pipe multiple commands using `|`
+          npm --parse package.json version | xargs -I {} git tag -m "Release v{}" v{} || true
 
 
   build_and_deploy:
