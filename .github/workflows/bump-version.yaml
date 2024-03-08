@@ -1,8 +1,10 @@
-name: Bump version
+name: Bump Version
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,8 +12,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: '0'
-      - name: Bump version and push tag
+      - name: Bump version and push tag (check action documentation)
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.BUMP_VERSION }}
-          WITH_V: true
+          # Adjust the line below based on the action's documentation for version handling
+          # This is an example, consult the action's specific instructions.
+          VERSION: $(npm --parse package.json version)  # Example: Get version from package.json
