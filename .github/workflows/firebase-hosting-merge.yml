@@ -24,7 +24,7 @@ jobs:
       - name: Create Git tag (optional)
         run: |
           npm --parse package.json version | xargs -I {} git tag -m "Release v{}" v{} || true
-  
+        working-directory: test-workflows
 
   build_and_deploy:
     runs-on: ubuntu-latest
