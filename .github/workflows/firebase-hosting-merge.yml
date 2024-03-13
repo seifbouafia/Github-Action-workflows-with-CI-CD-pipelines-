@@ -26,6 +26,16 @@ jobs:
           npm --parse package.json version | xargs -I {} git tag -m "Release v{}" v{} || true
         working-directory: test-workflows
 
+      - name: Commit report
+        run: |
+            git config --global user.name seifbouafia
+            git config --global user.email seifbouafia340@gmail.com
+            git add .
+            git commit -m "automated report"
+            git push  origin main
+          env:
+            GIT_TOKEN: ${{ secrets.BUMP_VERSION }}
+
   build_and_deploy:
     runs-on: ubuntu-latest
     needs: bump_version_and_build  # Wait for the previous job to finish
