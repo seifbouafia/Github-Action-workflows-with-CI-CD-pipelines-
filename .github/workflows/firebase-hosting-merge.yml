@@ -25,7 +25,6 @@ jobs:
         run: |
           npm --parse package.json version | xargs -I {} git tag -m "Release v{}" v{} || true
         working-directory: test-workflows
-
       - name: Commit report
         run: |
             git config --global user.name seifbouafia
